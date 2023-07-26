@@ -1,84 +1,73 @@
 #include "sort.h"
 
 /**
- * swap - Interchange two integers
- * @a: Indiacator to first integer
- * @b: Indiacator to second integer
- */
-void swap(int *a, int *b)
-{
-	int tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
-/**
- * lomuto_partition - Seperated scheme for quicksort
- * @array: Group to be arranged
- * @low: Beginning clue of the seperation to be arranged
- * @high: Final clue of the seperation to be arranged
- * @size: Nature of the group
- *
- * Return: Clue of the pivot constituent after seperation
- */
-int lomuto_partition(int *array, int low, int high, size_t size)
-{
-	int pivot = array[high];
-	int i = low - 1;
-	int j;
-
-	for (j = low; j <= high - 1; j++)
-	{
-		if (array[j] <= pivot)
-		{
-			i++;
-			if (i != j)
-			{
-				swap(&array[i], &array[j]);
-				print_array(array, size);
-			}
-		}
-	}
-
-	if (i + 1 != high)
-	{
-		swap(&array[i + 1], &array[high]);
-		print_array(array, size);
-	}
-
-	return (i + 1);
-}
-
-/**
- * quicksort - Repeated purpose to arrange a group using quicksort
- * @array: Group to be arranged
- * @low: Beginning clue of the seperated to be arranged
- * @high: Final clue of the seperated to be arranged
- * @size: Nature of the group
- */
-void quicksort(int *array, int low, int high, size_t size)
-{
-	int partition;
-
-	if (low < high)
-	{
-		partition = lomuto_partition(array, low, high, size);
-		quicksort(array, low, partition - 1, size);
-		quicksort(array, partition + 1, high, size);
-	}
-}
-
-/**
- * quick_sort - Arrange a group of integers in increasing
- * sequence using Quick sort algorithm
- *
- * @array: Group to be arranged
- * @size: Nature of the group
- */
+* quick_sort – Purpose that arranges a group of integers
+* in arising sequence using the Quick sort algorithm
+* @array: Group to be arranged
+* @size: Nature of group
+* Return: empty
+*/
 void quick_sort(int *array, size_t size)
 {
-	if (array == NULL || size < 2)
-		return;
+if (array == NULL || size < 2)
+return;
 
-	quicksort(array, 0, size - 1, size);
+quick_s(array, 0, size - 1, size);
+}
+
+/**
+* partition - Separation
+* @array: Group to be arranged
+* @lo: Beginning clue of the separation to be arranged
+* @hi: Final clue of the separation to be arranged
+* @size: Nature of group
+* Return: Clue of the pivot constituent after separation
+*/
+int partition(int *array, int lo, int hi, size_t size)
+{
+int i = lo - 1, j = lo;
+int pivot = array[hi], aux = 0;
+
+for (; j < hi; j++)
+{
+if (array[j] < pivot)
+{
+i++;
+if (array[i] != array[j])
+{
+aux = array[i];
+array[i] = array[j];
+array[j] = aux;
+print_array(array, size);
+}
+}
+}
+if (array[i + 1] != array[hi])
+{
+aux = array[i + 1];
+array[i + 1] = array[hi];
+array[hi] = aux;
+print_array(array, size);
+}
+return (i + 1);
+}
+
+/**
+* quick_s – Fast arrangement
+* @array: Group to be arranged
+* @lo: Beginning clue of the separation to be arranged
+* @hi: Final clue of the separation to be arranged
+* @size: Nature of group
+* Return: Empty
+*/
+void quick_s(int *array, int lo, int hi, size_t size)
+{
+int pivot;
+
+if (lo < hi)
+{
+pivot = partition(array, lo, hi, size);
+quick_s(array, lo, pivot - 1, size);
+quick_s(array, pivot + 1, hi, size);
+}
 }
