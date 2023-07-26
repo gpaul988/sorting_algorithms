@@ -5,6 +5,7 @@
 /**
  * selection_sort - Arrange group of integers in increasing order using
  * the selection sort algorithm
+ *
  * @array: Group to be arranged
  * @size: Nature of the group
  */
