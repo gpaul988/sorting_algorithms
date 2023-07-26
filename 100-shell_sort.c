@@ -1,7 +1,9 @@
 #include "sort.h"
 
 /**
- * shell_sort - Arrange a group of integers in increasing sequence using Shell sort algorithm with Knuth sequence
+ * shell_sort - Arrange a group of integers in increasing
+ * sequence using Shell sort algorithm with Knuth sequence
+ *
  * @array: Group to be arrange
  * @size: Nature of the Group
  */

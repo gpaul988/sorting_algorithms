@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "sort.h"
 
 /**
@@ -21,6 +23,7 @@ void heapify(int *array, size_t size, int index)
 	if (largest != index)
 	{
 		int temp = array[index];
+
 		array[index] = array[largest];
 		array[largest] = temp;
 		print_array(array, size);
@@ -29,7 +32,9 @@ void heapify(int *array, size_t size, int index)
 }
 
 /**
- * heap_sort - Arrange a group of integers in increasing sequence using stack sort
+ * heap_sort - Arrange a group of integers in increasing
+ * sequence using stack sort
+ *
  * @array: Group to arrange
  * @size: NAture of the group
  */
@@ -46,6 +51,7 @@ void heap_sort(int *array, size_t size)
 	for (i = size - 1; i > 0; i--)
 	{
 		int temp = array[0];
+
 		array[0] = array[i];
 		array[i] = temp;
 		print_array(array, size);

@@ -1,9 +1,11 @@
-#include "sort.h"
+#include <stdio.h>
 #include <stdlib.h>
+#include "sort.h"
 
 /**
- * counting_sort_radix - COnducts computing arrangement on a group based on a particuar
- * notable digit
+ * counting_sort_radix - COnducts computing arrangement on
+ * a group based on a particuar notable digit
+ *
  * @array: Group to be arranged
  * @size: Nature of the group
  * @exp: Present notable digit to review
@@ -39,7 +41,9 @@ void counting_sort_radix(int *array, int size, int exp)
 }
 
 /**
- * radix_sort - Arrange a group of integers in increasing sequence using radix sort
+ * radix_sort - Arrange a group of integers in increasing
+ * sequence using radix sort
+ *
  * @array: Group to be arranged
  * @size: Nature of group
  */

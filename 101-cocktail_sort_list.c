@@ -1,9 +1,12 @@
+#include <stdio.h>
 #include "sort.h"
 
-void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2); // Forward declaration
+void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2);
 
 /**
- * cocktail_sort_list - Arranges a dual conneted list of integers in increasing sequence using Cocktail shaker sort
+ * cocktail_sort_list - Arranges a dual conneted list of integers in increasing
+ * sequence using Cocktail shaker sort
+ *
  * @list: Dual indicator to the start of the dual connected list
  */
 void cocktail_sort_list(listint_t **list)
@@ -15,8 +18,7 @@ void cocktail_sort_list(listint_t **list)
 	if (list == NULL || *list == NULL)
 		return;
 
-	do
-	{
+	do {
 		swapped = 0;
 		while (start->next != end)
 		{

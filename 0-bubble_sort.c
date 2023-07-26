@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "sort.h"
 
 /**
  * bubble_sort - Arrange an array of integers in increasing
  * sequence using Bubble sort
+ *
  * @array: Group to be arranged
  * @size: Size of the Group
  */
@@ -31,7 +33,10 @@ void bubble_sort(int *array, size_t size)
 			}
 		}
 
-/* No two component were changed in the inner loop, the array is already sorted */
+		/**
+		 * No two component were changed in the inner
+		 * loop, the array is already sorted
+		 */
 		if (swapped == 0)
 			break;
 	}

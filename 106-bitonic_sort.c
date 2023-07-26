@@ -13,6 +13,7 @@ void bitonic_compare(int *array, size_t idx1, size_t idx2, int dir)
 	if ((array[idx1] > array[idx2] && dir) || (array[idx1] < array[idx2] && !dir))
 	{
 		int temp = array[idx1];
+
 		array[idx1] = array[idx2];
 		array[idx2] = temp;
 	}
@@ -28,9 +29,11 @@ void bitonic_compare(int *array, size_t idx1, size_t idx2, int dir)
 void bitonic_merge(int *array, size_t start, size_t size, int dir)
 {
 	size_t i;
+
 	if (size > 1)
 	{
 		size_t mid = size / 2;
+
 		for (i = start; i < start + mid; i++)
 			bitonic_compare(array, i, i + mid, dir);
 		bitonic_merge(array, start, mid, dir);
@@ -64,7 +67,9 @@ void bitonic_sort_recursive(int *array, size_t start, size_t size, int dir)
 }
 
 /**
- * bitonic_sort - Arrange a group of integers in increasing sequence using bitonic sort
+ * bitonic_sort - Arrange a group of integers in increasing
+ * sequence using bitonic sort
+ *
  * @array: Group to be arranged
  * @size: Nature of the group
  */

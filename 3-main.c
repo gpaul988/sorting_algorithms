@@ -3,9 +3,9 @@
 #include "sort.h"
 
 /**
- * main - Beginninig of code
+ * main - Entry point
  *
- * Return: 0
+ * Return: Always 0
  */
 int main(void)
 {

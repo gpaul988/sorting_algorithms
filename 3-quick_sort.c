@@ -69,7 +69,9 @@ void quicksort(int *array, int low, int high, size_t size)
 }
 
 /**
- * quick_sort - Arrange a group of integers in increasing sequence using Quick sort algorithm
+ * quick_sort - Arrange a group of integers in increasing
+ * sequence using Quick sort algorithm
+ *
  * @array: Group to be arranged
  * @size: Nature of the group
  */

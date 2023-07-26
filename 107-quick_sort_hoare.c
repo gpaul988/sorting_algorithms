@@ -3,98 +3,83 @@
 #include "sort.h"
 
 /**
- * swap - Interchange two integers in a group
- * @a: First integer
- * @b: Second integer
+ * swap - Interchange two int
+ * @a: First int
+ * @b: Secondint
+ * Return: (empty) Interchanged int
  */
 void swap(int *a, int *b)
 {
-	int temp = *a;
-	*a = *b;
-	*b = temp;
-}
+	int tmp;
 
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
 /**
- * partition_hoare - Sperating the group using the Hoare partition scheme
+ * partition - Sperating the group using the Hoare partition scheme
  * @array: Group to be seperated
- * @low: BEginning clue of the seperation
- * @high: Final clue of the seperation
+ * @low: Beginning clue of the seperation
+ * @high: Final Clue of the seperation
  * @size: Nature of group
- *
- * Return: Clue of the pivot element
+ * Return: Clue of pivote (int)
  */
-int partition_hoare(int *array, int low, int high, size_t size)
+int partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
-	int i = low - 1, j = high + 1;
+	int i = low, j = high;
 
 	while (1)
 	{
-		do
-		{
+		while (array[i] < pivot)
 			i++;
-		} while (array[i] < pivot);
-
-		do
-		{
+		while (array[j] > pivot)
 			j--;
-		} while (array[j] > pivot);
 
-		if (i >= j)
-			return (j);
-
-		swap(&array[i], &array[j]);
-		print_array(array, size);
+		if (i < j)
+		{
+			swap(&array[i], &array[j]);
+			print_array(array, size);
+			i++;
+			j--;
+		}
+		else
+		{
+			if (i != j)
+				return (j);
+			return (j - 1);
+		}
 	}
 }
-
 /**
- * quicksort_hoare - Apply the Quick sort algorithm using Hoare partition scheme
- * @array: Group tobe arranged
+ * hoare_qsort - Arranging repeated groups
+ * @array: Groups tobe arranged
  * @low: Beginning clue of the seperation
- * @high: Final clue of the sepeartion
- * @size: Nature of group
+ * @high: Final clue of the seperation
+ * @size: Nature of the group
+ * Return: Empty
  */
-void quicksort_hoare(int *array, int low, int high, size_t size)
+void hoare_qsort(int *array, int low, int high, size_t size)
 {
-	int pivot;
+	int i;
 
 	if (low < high)
 	{
-		pivot = partition_hoare(array, low, high, size);
-		quicksort_hoare(array, low, pivot, size);
-		quicksort_hoare(array, pivot + 1, high, size);
+		i = partition(array, low, high, size);
+		if (i > low)
+			hoare_qsort(array, low, i, size);
+		hoare_qsort(array, i + 1, high, size);
 	}
 }
-
 /**
- * quick_sort_hoare - Arrange a group of integers in increasing sequence using the
- * Quick sort algorithm (Hoare partition scheme)
+ * quick_sort_hoare - Fast arrangement of  Algorithme using hoare partition
  * @array: Group to be arranged
- * @size: NAture of group
+ * @size: Nature of the group
+ * Return: Arrange group (empty)
  */
 void quick_sort_hoare(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;
-
-	quicksort_hoare(array, 0, size - 1, size);
-}
-
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
-int main(void)
-{
-	int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
-	size_t n = sizeof(array) / sizeof(array[0]);
-
-	print_array(array, n);
-	printf("\n");
-	quick_sort_hoare(array, n);
-	printf("\n");
-	print_array(array, n);
-	return (0);
+	hoare_qsort(array, 0, size - 1, size);
 }
