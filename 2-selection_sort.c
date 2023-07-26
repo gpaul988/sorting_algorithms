@@ -1,6 +1,19 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "sort.h"
+
+/**
+ * swap - Interchange elements of a group
+ *
+ * @xp: Indicator to element to be interchanged
+ * @yp: Indicator to element to be interchanged
+ */
+void swap(int *xp, int *yp)
+{
+	int temp;
+
+	temp = *xp;
+	*xp = *yp;
+	*yp = temp;
+}
 
 /**
  * selection_sort - Arrange group of integers in increasing order using
@@ -12,9 +25,8 @@
 void selection_sort(int *array, size_t size)
 {
 	size_t i, j, min_idx;
-	int temp;
 
-	if (array == NULL || size <= 1)
+	if (size < 2)
 		return;
 
 	for (i = 0; i < size - 1; i++)
@@ -25,13 +37,9 @@ void selection_sort(int *array, size_t size)
 			if (array[j] < array[min_idx])
 				min_idx = j;
 		}
-
-		if (min_idx != i)
-		{
-			temp = array[i];
-			array[i] = array[min_idx];
-			array[min_idx] = temp;
-			print_array(array, size);
-		}
+		if (min_idx == i)
+			continue;
+		swap(&array[min_idx], &array[i]);
+		print_array(array, size);
 	}
 }
