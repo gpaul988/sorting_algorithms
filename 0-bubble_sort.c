@@ -1,10 +1,10 @@
 #include "sort.h"
 
 /**
- * swap - Swaps Two elements
+ * swap - Interchange two elements
  *
- * @xp: Pointer to element to be swapped
- * @yp: Pointer to element to be swapprd
+ * @xp: Indicator to element to be interchanged
+ * @yp: Indicator to element to be interchanged
  */
 void swap(int *xp, int *yp)
 {
@@ -16,8 +16,8 @@ void swap(int *xp, int *yp)
 }
 
 /**
- * bubble_sort - Sorts an array of intergers in ascending order
- *	using bubble sort
+ * bubble_sort - Arrange array of integers in increasing
+ * sequence using bubble arrangement
  *
  * @array: array to be sorted
  * @size: Number of elements in an  array
