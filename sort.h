@@ -25,6 +25,7 @@ void print_list(const listint_t *list);
 /* Arranging algorithms */
 void counting_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
+listint_t *swap_node(listint_t *node, listint_t **list);
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
